@@ -1,0 +1,111 @@
+class Solution
+{
+    public:
+    //Function to sort a linked list of 0s, 1s and 2s.
+    Node* segregate(Node *head) {
+        
+    //     // Add code here
+    //     Node* temp = head;
+    //     vector<int>v;
+    //     while(temp != NULL){
+    //         temp =temp->next;
+    //         v.push_back(temp->data);
+    //     }
+    //     vector<int> x;
+    // for(int i = 0; i < v.size(); i++){
+    //     if(v[i] == 0){
+    //         x.push_back(0);
+    //     }
+    // }
+    // for(int i = 0; i < v.size(); i++){
+    // if(v[i]==1){
+    //         x.push_back(1);
+    //     }
+    // }
+    // for(int i = 0; i < v.size(); i++){
+    //     if(v[i]==2){
+    //         x.push_back(2);
+    //     }
+    // }
+    // Node* temp2 = head;
+    
+    // int i =0;
+    // while(temp2 != NULL){
+    //     temp2->data = x[i];
+    //     i++;
+    // }
+    
+    // return temp2;
+        // Node* temp1 = head;
+        // Node* temp2 = head;
+        // Node* temp3 = NULL;
+        
+        // while(temp1 != NULL){
+        //     temp1=temp1->next;
+        //     if(temp2->data == 0){
+        //         temp3->data=temp2->data;
+        //     }
+        //     temp2=temp2->next;
+        //     // temp3=temp3->next;
+        // }
+        
+        // while(temp1 != NULL){
+        //     temp1=temp1->next;
+        //     if(temp2->data == 1){
+        //         temp3->next->data=temp2->data;
+        //     }
+        //     temp2=temp2->next;
+        //     // temp3=temp3->next;
+        // }
+        // while(temp1 != NULL){
+        //     temp1=temp1->next;
+        //     if(temp2->data == 2){
+        //         temp3->next->data=temp2->data;
+        //     }
+        //     temp2=temp2->next;
+        //     // temp3=temp3->next;
+        // }
+        
+        
+        // return temp3;
+        
+        int ZeroCnt = 0;
+       int OneCnt = 0;
+       int TwoCnt = 0;
+       
+       Node* temp = head;
+       while(temp != NULL){
+           if(temp -> data == 0)
+           ZeroCnt++;
+           
+           else if(temp -> data == 1)
+           OneCnt++;
+           
+           else if(temp -> data == 2)
+           TwoCnt++;
+           
+           temp = temp -> next;
+       }
+       
+       temp = head;
+       
+       while(temp != NULL) {
+           if(ZeroCnt != 0){
+           temp -> data = 0;
+           ZeroCnt--;
+           }
+           
+           else if( OneCnt != 0){
+           temp -> data = 1;
+           OneCnt--;
+           }
+           
+           else if(TwoCnt != 0){
+           temp -> data = 2;
+           TwoCnt--;
+           }
+           temp  = temp -> next;
+       }
+       return head;
+    }
+};
