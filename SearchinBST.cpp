@@ -1,4 +1,4 @@
-
+// recursive way
 bool searchInBST(BinaryTreeNode<int> *root, int x) {
     // Write your code here.
     if(root==NULL){
@@ -13,3 +13,16 @@ bool searchInBST(BinaryTreeNode<int> *root, int x) {
         return searchInBST(root->right,x);
     
 }
+
+// Iterative Way 
+BinaryTreeNode<int> *temp = root;
+    while(temp != NULL){
+        if(temp->data == x)
+            return true;
+        
+        if(temp->data > x)
+            temp = temp->left;
+        else
+            temp=temp->right;
+    }
+    return false;
