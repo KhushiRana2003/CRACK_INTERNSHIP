@@ -14,3 +14,15 @@ class Solution {
         return map.size() == 0;
     }
 }
+
+
+/*
+Second Way to do this
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        
+        return (s.size()==t.size() ? is_permutation(s.begin(),s.end(),t.begin()):0);
+    }
+};
+*/
